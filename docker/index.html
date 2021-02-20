@@ -1,0 +1,108 @@
+<html>
+<head>
+<style>
+html,body,p {
+    margin: 0;
+    padding: 0;
+}
+.title {
+    margin: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+.warn {
+    background-color: #ff4b5d;
+}
+.red {
+    background-color: #FFCDD2;
+}
+.blue {
+    background-color: #BBDEFB;
+}
+.green {
+    background-color: #C8E6C9;
+}
+.container {
+    display: flex;
+    background-color: #EEEEEE;
+}
+.block {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    width: 33%;
+}
+.url {
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    padding: 2px;
+    width: 33%;
+}
+</style>
+<script src="env.js"></script>
+</head>
+<body>
+    <h2 class="title">Gazo-san Report</h2>
+    <div class="container" style="justify-content: space-around;">
+        <div class="block">BASE</div>
+        <div class="block">COMPARE</div>
+        <div class="block">DIFFERENCE</div>
+    </div>
+    <div class="container" style="justify-content: space-around;">
+        <div id ="base" class="url"></div>
+        <div id ="compare" class="url"></div>
+        <div id ="diff" class="url"></div>
+        <script>
+            document.getElementById("base").innerHTML =  env.BaseURL;
+            document.getElementById("compare").innerHTML = env.CompareURL;
+        </script>
+    </div>
+
+    <div class="container" style="justify-content: space-around;">
+        <div class="green block">
+            <img id="image1" src="./output_delete.png" style='width: 100%; object-fit: contain'>
+        </div>
+        <div class="blue block">
+            <img id="image2" src="./output_add.png" style='width: 100%; object-fit: contain'>
+        </div>
+        <div class="red block">
+            <img id="image3" src="./output_diff.png" style='width: 100%; object-fit: contain'>
+        </div>
+        <script>
+            var deleteImg = new Image();
+            deleteImg.src = "./output_delete.png";
+            var addImg = new Image();
+            addImg.src = "./output_add.png";
+            var diffImg = new Image();
+            diffImg.src = "./output_diff.png";
+            var baseImg = new Image();
+            baseImg.src = "./base.png";
+            var compareImg = new Image();
+            compareImg.src = "./compare.png";
+
+            deleteImg.onerror = function(){
+                document.getElementById("image1").src = "./base.png";
+                baseImg.onerror = function(){
+                    document.getElementById("base").innerHTML = "Capture fail";
+                    document.getElementById("base").classList.add("warn");
+                }
+            }
+            addImg.onerror = function(){
+                document.getElementById("image2").src = "./compare.png";
+                compareImg.onerror = function(){
+                    document.getElementById("compare").innerHTML = "Capture fail";
+                    document.getElementById("compare").classList.add("warn");
+                }
+            }
+            diffImg.onerror = function(){
+                document.getElementById("diff").innerHTML = "Can't detect any differences";
+                document.getElementById("diff").classList.add("warn");
+            }
+        </script>
+    </div>
+</body>
+</html>
