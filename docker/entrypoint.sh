@@ -10,7 +10,7 @@ sed -i 's@CompareURL@'"$CompareURL"'@' /report/report.html
 cd /report
 gazosan ./images/compare.png ./images/base.png ./images/output --create-change-image
 
-if [ $1 = local-server ]; then
+if [[ $1 == local-server ]]; then
     service nginx start
     tail -f /dev/null
 fi
