@@ -22,7 +22,7 @@ docker run -it -d -p 8080:80 --env BaseURL="https://www.google.com/?hl=ja" --env
 ```
 
 ## Check the report
-Check the HTML report file or check on the local server.
+Check the `report.html` or check on the local server.
 
 http://localhost:8080/
 
