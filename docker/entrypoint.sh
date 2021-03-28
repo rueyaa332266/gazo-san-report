@@ -3,9 +3,9 @@
 mkdir /report/images
 node capture_script.js
 
-mv index.html /report
-sed -i 's@BaseURL@'"$BaseURL"'@' /report/index.html
-sed -i 's@CompareURL@'"$CompareURL"'@' /report/index.html
+mv report.html /report
+sed -i 's@BaseURL@'"$BaseURL"'@' /report/report.html
+sed -i 's@CompareURL@'"$CompareURL"'@' /report/report.html
 
 cd /report
 gazosan ./images/compare.png ./images/base.png ./images/output --create-change-image
