@@ -43,7 +43,6 @@ html,body,p {
     width: 33%;
 }
 </style>
-<script src="env.js"></script>
 </head>
 <body>
     <h2 class="title">Gazo-san Report</h2>
@@ -57,42 +56,42 @@ html,body,p {
         <div id ="compare" class="url"></div>
         <div id ="diff" class="url"></div>
         <script>
-            document.getElementById("base").innerHTML =  env.BaseURL;
-            document.getElementById("compare").innerHTML = env.CompareURL;
+            document.getElementById("base").innerHTML = "BaseURL";
+            document.getElementById("compare").innerHTML = "CompareURL";
         </script>
     </div>
 
     <div class="container" style="justify-content: space-around;">
         <div class="green block">
-            <img id="image1" src="./output_delete.png" style='width: 100%; object-fit: contain'>
+            <img id="image1" src="./images/output_delete.png" style='width: 100%; object-fit: contain'>
         </div>
         <div class="blue block">
-            <img id="image2" src="./output_add.png" style='width: 100%; object-fit: contain'>
+            <img id="image2" src="./images/output_add.png" style='width: 100%; object-fit: contain'>
         </div>
         <div class="red block">
-            <img id="image3" src="./output_diff.png" style='width: 100%; object-fit: contain'>
+            <img id="image3" src="./images/output_diff.png" style='width: 100%; object-fit: contain'>
         </div>
         <script>
             var deleteImg = new Image();
-            deleteImg.src = "./output_delete.png";
+            deleteImg.src = "./images/output_delete.png";
             var addImg = new Image();
-            addImg.src = "./output_add.png";
+            addImg.src = "./images/output_add.png";
             var diffImg = new Image();
-            diffImg.src = "./output_diff.png";
+            diffImg.src = "./images/output_diff.png";
             var baseImg = new Image();
-            baseImg.src = "./base.png";
+            baseImg.src = "./images/base.png";
             var compareImg = new Image();
-            compareImg.src = "./compare.png";
+            compareImg.src = "./images/compare.png";
 
             deleteImg.onerror = function(){
-                document.getElementById("image1").src = "./base.png";
+                document.getElementById("image1").src = "./images/base.png";
                 baseImg.onerror = function(){
                     document.getElementById("base").innerHTML = "Capture fail";
                     document.getElementById("base").classList.add("warn");
                 }
             }
             addImg.onerror = function(){
-                document.getElementById("image2").src = "./compare.png";
+                document.getElementById("image2").src = "./images/compare.png";
                 compareImg.onerror = function(){
                     document.getElementById("compare").innerHTML = "Capture fail";
                     document.getElementById("compare").classList.add("warn");

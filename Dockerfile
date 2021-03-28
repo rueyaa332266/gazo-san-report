@@ -14,9 +14,9 @@ RUN apt-get update \
 RUN npm i puppeteer \
     && groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser
 
+RUN mkdir /report
 WORKDIR /app
 COPY docker/ ./
 RUN mv nginx.conf /etc/nginx/conf.d/default.conf
-RUN mv index.html /var/www/html/
 
 ENTRYPOINT ["bash", "/app/entrypoint.sh"]
