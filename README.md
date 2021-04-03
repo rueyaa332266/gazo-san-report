@@ -1,6 +1,6 @@
 # Gazo-san-report
 
-# What is gazo-san-report
+# What is Gazo-san-report
 Gazo-san-report is a report tool for visual testing between two URLs.
 It will create an HTML report as the output. Or show the HTML report on the local server by nginx using port 80.
 
