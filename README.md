@@ -7,14 +7,14 @@ It will create an HTML report as the output. Or show the HTML report on the loca
 It's useful for checking web applications between different environments. For example, checking differences between development environment and production environment.
 ## Usage
 
-### Output as an HTML report
+### Output as a HTML report
 Start docker container by passing the target URLs in environment variables. The report will be created in the directory you have mounted.
 
 ```
 docker run -it -d --rm -v `pwd`:/report --env BaseURL="https://www.google.com/?hl=ja" --env CompareURL="https://www.google.com/?hl=en" aa332266/gazo-san-report:latest
 ```
 
-### Show an HTML report on the local server
+### Show HTML report on the local server
 By passing the argument `local-server` and expose the port 80.
 
 ```
